@@ -51,18 +51,16 @@ function StartGame(){
 
     // Set the interval
      generateRandomNumber = setInterval(function(){
+        // if no input was made
+        if(document.querySelector('input[name=input]').value == ""){
+            document.querySelectorAll('.letter')[number-1].classList.add('miss');
+            document.querySelector('#score .miss span').innerHTML = parseInt(document.querySelector('#score .miss span').innerHTML) + 1;
+        }
+
         // Clear the input
         document.querySelector('input[name=input]').value = "";
         document.querySelector('input[name=input]').disabled = false;
         document.querySelector('input[name=input]').focus();
-
-        // if no input was made
-        if(parseInt(document.querySelector('#score .hit span').innerHTML) +
-           parseInt(document.querySelector('#score .miss span').innerHTML) +
-           parseInt(document.querySelector('#score .left span').innerHTML) !== 26){
-                document.querySelectorAll('.letter')[number-1].classList.add('miss');
-                document.querySelector('#score .miss span').innerHTML = parseInt(document.querySelector('#score .miss span').innerHTML) + 1;
-           }
 
         // Generate next number
         number = ranNum.next().value;
@@ -76,10 +74,10 @@ function StartGame(){
 
         // Display current number
         document.querySelector('.target').innerText = number;
-
         // Dec of left numbers
         document.querySelector('#score .left span').innerHTML = parseInt(document.querySelector('#score .left span').innerHTML) - 1;
 
+        
     }, level);
 }
 
