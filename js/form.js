@@ -12,7 +12,8 @@ jQuery(document).ready(function(){
 
     jQuery('input').change(function(){
         var numValid = 0;
-        var currProgress = parseInt(document.querySelector('.form-progress span').innerText.slice(0,-1));
+        
+        var currProgress = parseInt(document.querySelector('.progress-circle').getAttribute('data-progress'));
 
         jQuery(".form-body input[required]").each(function() {
             if(this.type == "radio" && this.validity.valid){
@@ -33,20 +34,36 @@ jQuery(document).ready(function(){
         progressCounter(currProgress, numValid*25);
     });
 
-    // Progress function (counter)
-    function progressCounter(start, end){
-        var diff = end - start;
-        var curr = start;
-        var inc = end > start ? 1 : -1;
-        if(diff)
-            var timer = setInterval(function(){
-                curr += inc;
-                var el = document.querySelector('.form-progress span');
-                var currClass = document.querySelector('.form-progress').classList[2];
-                document.querySelector('.form-progress').classList.remove(currClass);
-                document.querySelector('.form-progress').classList.add("p"+curr+"");
-                el.innerText = curr + "%";
-                if( curr == end) clearInterval(timer);
-            }, 20);
-    }   
+
+    jQuery('form').submit(function(e){
+            e.preventDefault();
+            var btn = $('form button');
+            btn.addClass('loading').removeClass('success');
+            
+            setTimeout(function(){
+                btn.removeClass('loading').addClass('success');
+                btn.text("");
+            },2000);
+    });
 });
+
+// Progress function (counter)
+function progressCounter(start, end){
+    var diff = end - start;
+    var curr = start;
+    var inc = end > start ? 1 : -1;
+    if(diff)
+        var timer = setInterval(function(){
+            curr += inc;
+            var el = document.querySelector('.progress-circle');
+            var elimg = document.querySelector('.progress-circle img');
+            if(curr == 100){
+                el.setAttribute('data-progress', curr);
+                elimg.classList.remove('hide');
+            } else {
+                el.setAttribute('data-progress', curr);
+                elimg.classList.add('hide');
+            }
+            if( curr == end) clearInterval(timer);
+        }, 20);
+}   
