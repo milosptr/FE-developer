@@ -3,31 +3,20 @@
     <head>
         <!-- Meta tags -->
         <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
 
         <title>Form Flow</title>
 
         <!-- stylesheets -->
         <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
-        <link rel="stylesheet" href="css/progressBar.css">
+        <link rel="stylesheet" href="css/progress.css">
         <link rel="stylesheet" href="css/style.css">
-
-        <!-- javascripts  -->
-        <script
-  src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-  integrity="sha256-3edrmyuQ0w65f8gfBsqowzjJe2iM6n0nKciPUp8y+7E="
-  crossorigin="anonymous"></script>
-  <script src="js/form.js"></script>
     </head>
     <body>
         <section id="form-holder">
             <div class="form-header">
-                <div class="form-progress c100 p0">
-                    <span>0%</span>
-                    <div class="slice">
-                        <div class="bar"></div>
-                        <div class="fill"></div>
-                    </div>
+                <div class="progress-circle" data-progress="0">
+                    <img src="img/check-symbol.svg" class="hide"/>
                 </div>
                 <div class="form-title">
                     <p>New York State</p>
@@ -77,8 +66,15 @@
                             <p><input type="radio" name="contact-time" class="option-input" required /> Tuesday 3pm</p>
                         </div>
                     </div>
+                    <div class="form-group submit-form">
+                        <button>Request</button>
+                    </div>
                 </form>
             </div>
         </section>
+
+        <!-- javascripts  -->
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha256-3edrmyuQ0w65f8gfBsqowzjJe2iM6n0nKciPUp8y+7E=" crossorigin="anonymous"></script>
+        <script src="js/form.js"></script>
     </body>
 </html>
