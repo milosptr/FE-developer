@@ -1,0 +1,110 @@
+#LoginSection {
+  background: url(../../assets/images/abstract-background.jpg) no-repeat;
+  background-position: left center;
+  background-size: cover;
+  height: 100vh;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  align-items: center;
+  -webkit-justify-content: space-around;
+  justify-content: space-around;
+}
+
+.LoginContainer {
+  width: 980px;
+  margin: 0 auto;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+}
+
+.LoginForm {
+  background: #fff;
+  width: 35%;
+  padding: 16px;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+}
+
+.LoginTitle {
+  padding: 10px 0;
+  color: #27246c;
+}
+
+.LoginFormBody {
+  padding: 30px 16px;
+}
+
+.LoginFormBody .form-group {
+  position: relative;
+  margin-bottom: 30px;
+}
+
+.LoginFormBody img {
+  position: absolute;
+  left: 0;
+  top: 15px;
+  width: 27px;
+  height: 27px;
+}
+
+.LoginFormBody label {
+  position: absolute;
+  z-index: 1;
+  left: 40px;
+  bottom: 15px;
+  width: 100%;
+  margin-bottom: 0;
+  font-size: 18px;
+  color: #9C9A9B;
+  -webkit-transition: all .3s ease-in-out;
+  -o-transition: all .3s ease-in-out;
+  transition: all .3s ease-in-out;
+}
+
+.LoginFormBody .form-group.active label {
+  bottom: 50px;
+  left: 40px;
+  font-size: 16px;
+}
+
+.LoginFormBody input {
+  position: relative;
+  z-index: 2;
+  outline: none;
+  background: transparent;
+  font-size: 18px;
+  color: #9C9A9B;
+  width: 100%;
+  padding: 15px 0 15px 40px;
+  border: none;
+  border-bottom: 1px solid #D7D7D7;
+  border-radius: 0;
+}
+
+.LoginFormBody button {
+  display: inline-block;
+  width: 100%;
+  margin: auto;
+  margin-top: 10px;
+  padding: 10px 0;
+  font-size: 22px;
+  border: none;
+  background: #ad2edf;
+  color: #fff;
+  cursor: pointer;
+}
+
+.LoginSideImage {
+  width: 65%;
+  background: url('../../assets/images/login-side-image.jpg') no-repeat;
+  background-size: cover;
+  background-position: center center;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+}

@@ -1,0 +1,46 @@
+.single-user {
+  text-align: center;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+  width: 30%;
+  margin-right: 5%;
+  box-sizing: border-box;
+}
+
+.usersList .single-user:nth-child(3n + 1) {
+  margin-right: 0;
+}
+
+.single-user .row {
+  padding: 0 15px;
+}
+
+.single-user .col-md-8 {
+  align-self: center;
+  text-align: left;
+}
+
+.single-user img {
+  width: 100px;
+  height: 100px;
+  margin-left: -15px;
+}
+
+.edit-buttons {
+  display: flex;
+  justify-content: space-between;
+}
+
+.edit-buttons button {
+  border: none;
+  background: transparent;
+  padding: 0;
+  cursor: pointer;
+}
+
+.edit-buttons .edit {
+  color: blue;
+}
+
+.edit-buttons .delete {
+  color: red;
+}

@@ -1,0 +1,51 @@
+.header {
+  border-bottom: 1px solid #eee;
+  padding: 10px 0;
+}
+
+.header img {
+  height: 36px;
+}
+
+.header button {
+  border-radius: 3px;
+  background: transparent;
+  padding: 5px 15px;
+  cursor: pointer;
+  transition: all .3s ease-in-out;
+}
+
+.header .usersListBtn {
+  background: #27246c;
+  border: 1px solid #27246c;
+  color: #fff;
+  margin-right: 15px;
+}
+
+.header .usersListBtn:hover {
+  background: transparent;
+  color: #27246c;
+}
+
+.header .newUserBtn {
+  border: 1px solid #ad2edf;
+  background: #ad2edf;
+  color: #fff;
+  margin-right: 15px;
+}
+
+.header .newUserBtn:hover {
+  background: transparent;
+  color: #ad2edf;
+}
+
+.header .logout {
+  border: 1px solid #aaa;
+}
+
+.header .logout:hover {
+  background: #27246c;
+  border-color: #27246c;
+  color: #fff;
+}
+

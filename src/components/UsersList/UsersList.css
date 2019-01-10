@@ -1,0 +1,19 @@
+.usersList {
+  margin-top: 50px;
+}
+
+.userFilter {
+  padding: 5px 15px;
+  margin-bottom: 20px;
+  border-bottom: 1px solid #eee;
+}
+
+.userFilter select {
+  border: none;
+  margin-left: 10px;
+  width: 60px;
+  appearance: none;
+  -webkit-appearance: none;
+  outline: none;
+  font-weight: bold;
+}
