@@ -1,35 +1,32 @@
-import React, { Component } from 'react';
+import React from 'react';
 import './User.css';
 
-export class User extends Component {
-  state = {
-    isEditing: false
-  }
-  editUser = () => {
-    alert("editing");
+const User = (props) => {
+
+  const editUser = () => {
+    props.edit(props.data.id);
   }
 
-  deleteUser = () => {
-    this.props.delete(this.props.data.id);
+  const deleteUser = () => {
+    props.delete(props.data.id);
   }
-  render() {
     return (
       <div className="single-user">
         <div className="row">
           <div className="col-md-4">
-            <img src={this.props.data.avatar} alt="" />
+            <img src={props.data.avatar} alt="" />
           </div>
           <div className="col-md-8">
-            {this.state.isEditing ? "Editing mode on..." : null}
-            <p className="user-info">{this.props.data.first_name} {this.props.data.last_name}</p>
+            <p className="user-info">{props.data.first_name} {props.data.last_name}</p>
             <div className="edit-buttons">
-              <button className="edit" onClick={this.editUser}>Edit User</button>
-              <button className="delete" onClick={this.deleteUser}>Delete User</button>
+              <button className="edit" onClick={editUser}>Edit User</button>
+              <button className="delete" onClick={deleteUser}>Delete User</button>
             </div>
           </div>
         </div>
       </div>
     )
   }
-}
+
+  export default User
 

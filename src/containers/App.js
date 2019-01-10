@@ -16,13 +16,11 @@ class App extends Component {
 
   logIn = (state) => {
     this.setState({ ...state });
-    console.log(this.state);
   }
 
   logOut = () => {
     const newState = { username: '', password: '', isAuthenticated: false, authToken: null }
     this.setState({ ...newState });
-    console.log(this.state);
   }
 
   render() {

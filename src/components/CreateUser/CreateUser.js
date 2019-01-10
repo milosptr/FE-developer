@@ -21,11 +21,6 @@ export class CreateUser extends Component {
     this.setState({ id: maxid });
   }
 
-  validateEmail = (email) => {
-    var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-    return re.test(String(email).toLowerCase());
-  }
-
   nameHandler = (e) => {
     this.setState({ [e.target.name]: e.target.value });
   }
@@ -40,10 +35,6 @@ export class CreateUser extends Component {
 
   CreateUser = (f) => {
     f.preventDefault();
-    if (this.props.state.authToken !== "TOKEN") {
-      alert("You don't have premission to create new user!");
-      return;
-    }
 
     this.props.newUser(this.state);
     this.props.cumodal();
