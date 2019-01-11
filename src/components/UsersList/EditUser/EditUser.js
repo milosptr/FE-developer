@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-
+import axios from 'axios';
 import './EditUser.css';
 
 export class EditUser extends Component {
@@ -7,12 +7,13 @@ export class EditUser extends Component {
     id: null,
     first_name: '',
     last_name: '',
-    photo: ''
+    avatar: ''
   }
 
+
   componentDidMount() {
-      const state = this.props.state;
-      this.setState({...state});
+    const state = this.props.state;
+    this.setState({ ...state });
   }
 
   nameHandler = (e) => {
@@ -20,7 +21,19 @@ export class EditUser extends Component {
   }
 
   photoHandler = (e) => {
-    //this.setState({ phone: e.target.value });
+    const cloudName = 'milosptr';
+    const unsignedUploadPreset = 'milosptrpreset';
+    let url = `https://api.cloudinary.com/v1_1/${cloudName}/upload`;
+    let data = new FormData();
+    data.append('upload_preset', unsignedUploadPreset);
+    data.append('tags', 'browser_upload'); // Optional - add tag for image admin in Cloudinary
+    data.append('file', document.querySelector('input[type=file]').files[0]);
+
+    axios.post(url, data)
+      .then((res) => {
+        this.setState({ avatar: res.data.secure_url })
+      });
+
   }
 
   EditUser = (f) => {
@@ -50,7 +63,7 @@ export class EditUser extends Component {
               <input type="text" name="last_name" placeholder="Last Name" onChange={this.nameHandler} />
             </div>
             <div className="col-md-12">
-              <input type="file" name="photo" accept="image/*" onChange={this.photoHandler}/>
+              <input type="file" name="photo" accept="image/*" onChange={this.photoHandler} />
             </div>
             <div className="col-md-6 m-auto text-center">
               <button>Submit Edit</button>

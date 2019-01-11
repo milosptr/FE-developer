@@ -6,12 +6,21 @@ const Pagination = (props) => {
     props.changePage(e.target.value);
   }
 
+  const state = props.state;
+
+  let total = state.pageLimit * state.totalPages;
+  if (total < state.totalUsers)
+    total = state.totalUsers;
+
+
+  const pages = Math.ceil(total / state.pageLimit);
+
   return (
     <div className="paginationContainer">
       <ul className="pagination">
 
-        {[...Array(props.totalPages)].map((v, i) => {
-          if (parseInt(props.curr) === (i + 1))
+        {[...Array(pages)].map((v, i) => {
+          if (parseInt(state.page) === (i + 1))
             return (
               <li className="page-item active" key={i}>
                 <button className="page-link" onClick={change} value={i + 1}>{i + 1}</button>
