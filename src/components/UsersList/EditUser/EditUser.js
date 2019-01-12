@@ -7,7 +7,8 @@ export class EditUser extends Component {
     id: null,
     first_name: '',
     last_name: '',
-    avatar: ''
+    avatar: '',
+    uploaded: true
   }
 
 
@@ -21,6 +22,7 @@ export class EditUser extends Component {
   }
 
   photoHandler = (e) => {
+    this.setState({uploaded: false})
     const cloudName = 'milosptr';
     const unsignedUploadPreset = 'milosptrpreset';
     let url = `https://api.cloudinary.com/v1_1/${cloudName}/upload`;
@@ -31,15 +33,16 @@ export class EditUser extends Component {
 
     axios.post(url, data)
       .then((res) => {
-        this.setState({ avatar: res.data.secure_url })
+        this.setState({ avatar: res.data.secure_url, uploaded: true });
       });
-
   }
 
   EditUser = (f) => {
     f.preventDefault();
+    let state = this.state;
+    delete state.uploaded;
 
-    this.props.editUser(this.props.state.id, this.state);
+    this.props.editUser(this.props.state.id, state);
     this.props.eumodal();
   }
 
@@ -66,7 +69,7 @@ export class EditUser extends Component {
               <input type="file" name="photo" accept="image/*" onChange={this.photoHandler} />
             </div>
             <div className="col-md-6 m-auto text-center">
-              <button>Submit Edit</button>
+            {this.state.uploaded ? <button >Submit Edit</button> : "Uploading avatar..."}
             </div>
           </form>
         </div>
